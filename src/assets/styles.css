@@ -1,0 +1,40 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Ninetea';
+  src: url('./fonts/Ninetea-Regular.eot');
+  src:
+    url('./fonts/Ninetea-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Ninetea-Regular.woff2') format('woff2'),
+    url('./fonts/Ninetea-Regular.woff') format('woff'),
+    url('./fonts/Ninetea-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NYXERIN';
+  src: url('./fonts/NYXERIN.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global Font Application */
+* {
+  font-family: 'Ninetea', 'NYXERIN', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ninetea', 'NYXERIN', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
