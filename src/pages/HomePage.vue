@@ -18,7 +18,7 @@ import ConnectedBrandsSection from '@/components/ConnectedBrandsSection.vue'
     <TechnologiesSection />
     <ConnectedBrandsSection />
     <BlogsSection />
-    <TechBankFooter />
+    <TechBankFooter title = "Engineering The Future" />
   </div>
 </template>
 

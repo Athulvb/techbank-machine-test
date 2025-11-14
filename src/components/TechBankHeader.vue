@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
+
+const router = useRouter()
+const goToContact = () => {
+  router.push({ name: 'contact' })
+}
 </script>
 
 <template>
@@ -17,7 +22,7 @@ import { RouterLink } from 'vue-router'
         <RouterLink to="/blog" class="nav-item">Blog</RouterLink>
       </nav>
 
-      <button class="contact-btn">CONTACT US</button>
+      <button class="contact-btn" @click="goToContact">CONTACT US</button>
     </div>
   </header>
 </template>
@@ -50,8 +55,6 @@ import { RouterLink } from 'vue-router'
   height: 33px;
   width: 129px;
 }
-
-
 
 .nav-menu {
   display: flex;
