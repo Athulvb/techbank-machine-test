@@ -130,6 +130,32 @@
   margin: 0 auto;
 }
 
+/* Mobile: single-card view with horizontal scrolling */
+@media (max-width: 1100px) {
+  .brands-grid {
+    display: flex; /* become a horizontal list */
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 100%;
+    margin: 0; /* full width scroll area */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    padding: 0 1rem 0.5rem; /* give some side padding so cards are centered nicely */
+  }
+  .brands-grid::-webkit-scrollbar {
+    display: none; /* hide webkit scrollbar */
+  }
+  .brand-card {
+    flex: 0 0 86%; /* each card takes most of viewport so one is visible */
+    scroll-snap-align: center;
+    min-height: 420px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    margin: 0 auto; /* center within the scroll snap area */
+  }
+}
 .brand-card {
   /* border: linear-gradient(110deg, rgba(13, 5, 36, 0.91) 42%, rgba(35, 36, 38, 0.91) 100%); */
   position: relative;
@@ -142,6 +168,9 @@
   padding: 2px; /* border thickness */
   border-radius: 27px;
   background: linear-gradient(110deg, #bb83ff, #b1b1b1, #313131);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -220,6 +249,15 @@
 @media (max-width: 768px) {
   .section-container {
     padding: 4rem 1.2rem;
+  }
+
+  .section-heading {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
   }
   .brand-card {
     padding: 1.25rem 0.5rem 1.35rem 0.5rem;

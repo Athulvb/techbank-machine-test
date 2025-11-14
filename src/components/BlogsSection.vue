@@ -263,6 +263,15 @@ const prevBlog = () => {
     padding: 40px 0;
   }
 
+  .section-heading{
+    font-size: 24px;
+  }
+
+  .section-subtitle{
+    font-size: 16px;
+  }
+
+
   .section-container {
     padding: 0 20px;
   }

@@ -409,13 +409,99 @@ const goToContact = () => {
     gap: 2.2rem;
   }
   .footer-links {
-    flex-direction: column;
-    gap: 1.2rem;
+    /* flex-direction: column; */
+    gap: 120px;
+    /* width: 100%; */
   }
   .footer-right {
+    display: none;
+  }
+
+  /* Improve taglines and logo sizing for mobile */
+  .footer-taglines {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 8px;
+    margin-bottom: 14px;
+  }
+  .footer-taglines span {
+    font-size: 24px;
+  }
+  .footer-logo-img {
+    width: 140px;
+    height: auto;
+  }
+
+  /* Make middle section stack neatly on small screens */
+  .footer-middle {
+    flex-direction: column;
     align-items: flex-start;
-    min-width: unset;
-    margin-top: 0.5rem;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  /* Footer links: two columns become full width stacked with clear spacing */
+  /* .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  } */
+  .footer-col-office {
+    margin-left: 0;
+  }
+
+  /* Bottom row: center items and stack */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .social-icons {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .legal-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+  .footer-bottom p {
+    color: #ccc;
+    margin: 0;
+  }
+
+  /* Background image sizing on smaller screens */
+  .footer-bg-img {
+    min-height: 220px;
+    max-height: 60vw;
+    object-position: center bottom;
+  }
+
+  /* Hide floating scroll button on small devices to avoid overlap */
+  .scroll-top {
+    display: none;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .footer-taglines {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .contact-btn {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
+  }
+  .footer-inner {
+    padding: 1.8rem 0.8rem 1.2rem;
+  }
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+  }
+  .footer-logo-img {
+    width: 120px;
   }
 }
 </style>

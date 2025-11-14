@@ -286,12 +286,23 @@
 }
 
 @media (max-width: 768px) {
+  .hero-container {
+    padding: 0 10px;
+  }
+  .hero-section {
+    padding: 0;
+  }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 36px;
+    line-height: 0.3;
+  }
+
+  .title-line-2 {
+    font-size: 36px;
   }
 
   .plus-sign {
-    font-size: 1.8rem;
+    font-size: 16px;
   }
 
   .hero-content {
@@ -299,7 +310,12 @@
     padding: 2rem 1.5rem;
     /* Use a mobile-specific background image and ensure it covers the area */
     background: url('/img/mobile_hero.png') no-repeat center;
-    background-size: cover;
+    background-size: contain;
+  }
+
+  .jellyfish-animation {
+    height: 400px;
+    top: 20%;
   }
 
   .hero-visual {
@@ -309,10 +325,7 @@
   }
 
   .hero-top-info {
-    align-self: center;
-    flex-direction: column;
-    text-align: center;
-    max-width: 260px;
+    display: none;
   }
 
   .hero-bottom-info {
@@ -322,8 +335,8 @@
   .shield-bg {
     width: 150px;
     height: 150px;
-    top: 15%;
-    left: 5%;
+    top: 10%;
+    left: 28%;
   }
 }
 </style>
