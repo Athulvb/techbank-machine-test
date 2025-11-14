@@ -109,7 +109,7 @@
 
 .top-info-text {
   padding-top: 10px;
-  color: #C0C0C0;;
+  color: #c0c0c0;
   font-weight: 400;
   /* line-height: 1.6; */
 }
@@ -297,6 +297,9 @@
   .hero-content {
     min-height: 400px;
     padding: 2rem 1.5rem;
+    /* Use a mobile-specific background image and ensure it covers the area */
+    background: url('/img/mobile_hero.png') no-repeat center;
+    background-size: cover;
   }
 
   .hero-visual {

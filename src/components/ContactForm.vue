@@ -19,6 +19,10 @@ function submitForm() {
 <template>
   <section class="contact-section">
     <div class="contact-container">
+      <div class="mobile-form-header">
+        <div class="kicker">BUILD THE FUTURE WITH US</div>
+        <h2 class="title">CONTACT US</h2>
+      </div>
       <div class="left-card">
         <div class="image-wrapper">
           <img src="/img/dwallet_product.png" alt="Dwallet product" />
@@ -107,6 +111,10 @@ function submitForm() {
   align-items: stretch; /* changed from center to allow columns to be equal height */
 }
 
+.mobile-form-header {
+  display: none;
+}
+
 .left-card {
   display: flex;
   justify-content: center;
@@ -130,6 +138,7 @@ function submitForm() {
   display: block;
   border-radius: 20px;
   object-fit: cover; /* crop and fill while preserving aspect */
+  object-position: center;
 }
 
 .image-overlay {
@@ -175,6 +184,23 @@ function submitForm() {
   font-size: 48px;
   font-weight: 400;
   margin: 0 0 40px 0;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* Ensure the mobile header uses the same visual styles as the desktop .form-header */
+.mobile-form-header .kicker {
+  color: #b08aff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+}
+
+.mobile-form-header .title {
+  font-family: 'NYXERIN', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  /* margin: 0 0 40px 0; */
   color: #fff;
   letter-spacing: 2px;
 }
@@ -294,10 +320,21 @@ textarea {
 @media (max-width: 1000px) {
   .contact-container {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .mobile-form-header {
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .form-header {
+    display: none;
   }
 
   .image-wrapper {
-    height: 420px; /* reasonable fixed height on stacked layout */
+    height: 380px; /* reasonable fixed height on stacked layout */
   }
 
   .image-overlay h3 {
@@ -306,6 +343,106 @@ textarea {
 
   .form-header .title {
     font-size: 36px;
+    text-align: center;
+  }
+
+  .right-card {
+    padding: 0 1rem;
+  }
+
+  .contact-form {
+    gap: 0.75rem;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  textarea {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  .country-code {
+    min-width: 56px;
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  /* Make the send button full width and center on small screens */
+  .send-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px; /* reduce horizontal padding when full width */
+    border-radius: 14px;
+  }
+
+  .send-btn .send-circle {
+    right: 16px; /* keep icon inside the pill */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .mobile-form-header .kicker {
+    color: #b08aff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+  }
+
+  .mobile-form-header .title {
+    font-family: 'NYXERIN', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  .image-wrapper {
+    height: 360px;
+    border-radius: 20px;
+  }
+
+  .image-overlay h3 {
+    font-size: 18px;
+    top: 1rem;
+  }
+
+  .form-header .kicker {
+    font-size: 11px;
+  }
+
+  .form-header .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .country-code {
+    min-width: 48px;
+    padding: 10px 8px;
+  }
+  .actions {
+    margin: 10px 60px;
+  }
+
+  .send-btn {
+    border-radius: 38px;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+
+  .send-btn .send-circle {
+    width: 36px;
+    height: 36px;
+    right: 4px;
+  }
+
+  .right-card {
+    padding: 0 0.5rem;
   }
 }
 </style>
