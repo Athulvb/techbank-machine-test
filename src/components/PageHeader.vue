@@ -1,10 +1,8 @@
 <script setup lang="ts">
-// Define props that this component accepts
 interface Props {
   title: string
 }
 
-// Define props with TypeScript
 defineProps<Props>()
 </script>
 

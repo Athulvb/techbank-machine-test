@@ -216,5 +216,25 @@
   .section-container {
     padding: 4rem 2rem;
   }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  .product-description {
+    max-width: 250px;
+  }
+
+  .product-title {
+    font-size: 24px;
+  }
+
+  .product-view-btn {
+    padding: 8px 32px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
 }
 </style>

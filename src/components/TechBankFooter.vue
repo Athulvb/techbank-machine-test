@@ -1,60 +1,98 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const props = defineProps<{
+  title?: string
+  taglineTop?: string
+  taglineBottom?: string
+}>()
+
+const lines = computed(() => {
+  // If explicit taglines provided, use them
+  if (props.taglineTop || props.taglineBottom) {
+    return [props.taglineTop ?? '', props.taglineBottom ?? '']
+  }
+
+  // If a title string is provided, try to split it into two lines
+  if (props.title) {
+    const t = props.title
+    if (t.includes('\n')) return t.split('\n', 2)
+    if (t.includes('|')) return t.split('|', 2).map((s) => s.trim())
+    // split words roughly in half
+    const words = t.trim().split(/\s+/)
+    const mid = Math.ceil(words.length / 2)
+    return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')]
+  }
+
+  // default
+  return ['ENGINEERING', 'THE FUTURE']
+})
+
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+const goToContact = () => {
+  router.push('/contact')
 }
 </script>
 
 <template>
   <footer class="footer">
     <img class="footer-bg-img" src="/img/Footer-image.png" alt="TechBank Footer Background" />
-    <div class="footer-alignment">
-      <div class="footer-container">
-        <div class="footer-left">
-          <div class="footer-logo-brand">
-            <img src="/img/Logo.png" alt="TechBank Logo" class="footer-logo-img" />
+    <div class="footer-inner">
+      <div class="footer-alignment">
+        <div class="footer-container">
+          <div class="footer-left">
+            <div class="footer-logo-brand">
+              <img src="/img/Logo.png" alt="TechBank Logo" class="footer-logo-img" />
+            </div>
+          </div>
+
+          <div class="footer-right">
+            <a href="mailto:hi@techbank.com" class="footer-email">hi@techbank.com</a>
+          </div>
+        </div>
+        <div class="footer-middle">
+          <div>
+            <div class="footer-taglines">
+              <span>{{ lines[0] }}</span>
+              <span>{{ lines[1] }}</span>
+            </div>
+            <button class="contact-btn" @click="goToContact">CONTACT US</button>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <a href="#" class="active">Home</a>
+              <a href="#">Products</a>
+              <a href="#">Teams</a>
+              <a href="#">Career</a>
+              <a href="#">Blog</a>
+            </div>
+            <div class="footer-col footer-col-office">
+              <span class="col-title">Offices</span>
+              <a href="#">Infopark</a>
+              <a href="#">Kochi - Kerala</a>
+            </div>
           </div>
         </div>
 
-        <div class="footer-right">
-          <a href="mailto:hi@techbank.com" class="footer-email">hi@techbank.com</a>
-        </div>
-      </div>
-      <div class="footer-middle">
-        <div>
-          <div class="footer-taglines">
-            <span>ENGINEERING</span>
-            <span>THE FUTURE</span>
+        <!-- Bottom -->
+        <div class="footer-bottom">
+          <div class="social-icons">
+            <a href="#"><img src="/img/LinkedinLogo.png" alt="LinkedIn" /></a>
+            <a href="#"><img src="/img/InstagramLogo.png" alt="Instagram" /></a>
+            <a href="#"><img src="/img/XLogo.png" alt="X" /></a>
+            <a href="#"><img src="/img/YoutubeLogo.png" alt="YouTube" /></a>
           </div>
-          <button class="contact-btn">CONTACT US</button>
-        </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <a href="#" class="active">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Teams</a>
-            <a href="#">Career</a>
-            <a href="#">Blog</a>
+          <p>© 2025 Techbank</p>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
           </div>
-          <div class="footer-col footer-col-office">
-            <span class="col-title">Offices</span>
-            <a href="#">Infopark</a>
-            <a href="#">Kochi - Kerala</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom -->
-      <div class="footer-bottom">
-        <div class="social-icons">
-          <a href="#"><img src="/img/LinkedinLogo.png" alt="LinkedIn" /></a>
-          <a href="#"><img src="/img/InstagramLogo.png" alt="Instagram" /></a>
-          <a href="#"><img src="/img/XLogo.png" alt="X" /></a>
-          <a href="#"><img src="/img/YoutubeLogo.png" alt="YouTube" /></a>
-        </div>
-        <p>© 2025 Techbank</p>
-        <div class="legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms and Conditions</a>
         </div>
       </div>
     </div>
@@ -86,7 +124,7 @@ const scrollToTop = () => {
   background: #000;
   color: #fff;
   overflow: hidden;
-  padding: 5rem 10rem 2rem;
+  /* padding: 5rem 10rem 2rem; */
   text-align: left;
 }
 .footer-bg-img {
@@ -117,6 +155,7 @@ const scrollToTop = () => {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
   z-index: 2;
 }
 
@@ -153,9 +192,13 @@ const scrollToTop = () => {
   letter-spacing: 0.1em;
   margin-top: 10px;
   margin-bottom: 20px;
+  line-height: 42px;
 }
 .footer-taglines span {
   display: block;
+  font-family: 'NYXERIN', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 .contact-btn {
   margin-bottom: 1.5rem;
@@ -323,6 +366,22 @@ const scrollToTop = () => {
   display: block;
 }
 
+/* Inner Container */
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 0 2rem; /* matches previous footer padding but keeps bg full-bleed */
+  position: relative;
+  z-index: 2;
+}
+
+/* reduce padding on small screens so layout remains consistent */
+@media (max-width: 768px) {
+  .footer-inner {
+    padding: 2.5rem 1.2rem 1.5rem;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .footer-container {
@@ -350,13 +409,99 @@ const scrollToTop = () => {
     gap: 2.2rem;
   }
   .footer-links {
-    flex-direction: column;
-    gap: 1.2rem;
+    /* flex-direction: column; */
+    gap: 120px;
+    /* width: 100%; */
   }
   .footer-right {
+    display: none;
+  }
+
+  /* Improve taglines and logo sizing for mobile */
+  .footer-taglines {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 8px;
+    margin-bottom: 14px;
+  }
+  .footer-taglines span {
+    font-size: 24px;
+  }
+  .footer-logo-img {
+    width: 140px;
+    height: auto;
+  }
+
+  /* Make middle section stack neatly on small screens */
+  .footer-middle {
+    flex-direction: column;
     align-items: flex-start;
-    min-width: unset;
-    margin-top: 0.5rem;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  /* Footer links: two columns become full width stacked with clear spacing */
+  /* .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  } */
+  .footer-col-office {
+    margin-left: 0;
+  }
+
+  /* Bottom row: center items and stack */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .social-icons {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .legal-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+  .footer-bottom p {
+    color: #ccc;
+    margin: 0;
+  }
+
+  /* Background image sizing on smaller screens */
+  .footer-bg-img {
+    min-height: 220px;
+    max-height: 60vw;
+    object-position: center bottom;
+  }
+
+  /* Hide floating scroll button on small devices to avoid overlap */
+  .scroll-top {
+    display: none;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .footer-taglines {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .contact-btn {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
+  }
+  .footer-inner {
+    padding: 1.8rem 0.8rem 1.2rem;
+  }
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+  }
+  .footer-logo-img {
+    width: 120px;
   }
 }
 </style>

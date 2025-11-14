@@ -105,8 +105,21 @@
     padding: 4rem 2rem;
   }
 
-  .metrics-grid {
-    grid-template-columns: 1fr;
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+
+  .about-description {
+    font-size: 16px;
+  }
+
+  .metric-icon {
+    font-size: 20px;
+  }
+
+  .metric-value {
+    font-size: 14px;
   }
 
   .metric-item {

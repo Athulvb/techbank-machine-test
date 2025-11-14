@@ -95,8 +95,6 @@
   align-items: center;
   gap: 1rem;
   max-width: 460px;
-  /* text-align: right; */
-  /* margin-bottom: 2rem; */
   z-index: 2;
 }
 
@@ -109,9 +107,8 @@
 
 .top-info-text {
   padding-top: 10px;
-  color: #C0C0C0;;
+  color: #c0c0c0;
   font-weight: 400;
-  /* line-height: 1.6; */
 }
 
 .hero-main {
@@ -139,7 +136,6 @@
   width: 250px;
   height: 250px;
   top: 10%;
-  /* left: 10%; */
   opacity: 0.4;
   z-index: 1;
   background: url('/img/shield.png') no-repeat center;
@@ -227,13 +223,6 @@
     box-shadow 0.25s ease;
 }
 
-/* .view-products-btn:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 14px 32px rgba(133, 0, 166, 0.4),
-    0 0 0 10px rgba(86, 35, 233, 0.2);
-} */
-
 .btn-icon {
   position: absolute;
   right: 3px;
@@ -286,17 +275,35 @@
 }
 
 @media (max-width: 768px) {
+  .hero-container {
+    padding: 0 10px;
+  }
+  .hero-section {
+    padding: 0;
+  }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 36px;
+    line-height: 0.3;
+  }
+
+  .title-line-2 {
+    font-size: 36px;
   }
 
   .plus-sign {
-    font-size: 1.8rem;
+    font-size: 16px;
   }
 
   .hero-content {
     min-height: 400px;
     padding: 2rem 1.5rem;
+    background: url('/img/mobile_hero.png') no-repeat center;
+    background-size: contain;
+  }
+
+  .jellyfish-animation {
+    height: 400px;
+    top: 20%;
   }
 
   .hero-visual {
@@ -306,10 +313,7 @@
   }
 
   .hero-top-info {
-    align-self: center;
-    flex-direction: column;
-    text-align: center;
-    max-width: 260px;
+    display: none;
   }
 
   .hero-bottom-info {
@@ -319,8 +323,8 @@
   .shield-bg {
     width: 150px;
     height: 150px;
-    top: 15%;
-    left: 5%;
+    top: 10%;
+    left: 28%;
   }
 }
 </style>
