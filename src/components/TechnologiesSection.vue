@@ -19,8 +19,8 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const displayedLogos = shuffleArray([...logos, ...logos])
-const scrollDuration = Math.max(14, displayedLogos.length * 1.6) // seconds, tweakable
-const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough items for smooth loop in each row
+const scrollDuration = Math.max(14, displayedLogos.length * 1.6)
+const carouselItems = [...displayedLogos, ...displayedLogos]
 </script>
 
 <template>
@@ -28,7 +28,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
     <div class="section-container">
       <h2 class="section-title">TECHNOLOGIES</h2>
       <div class="carousel" aria-hidden="false">
-        <!-- Row 1 -->
         <div class="carousel-row" role="presentation">
           <div class="carousel-track" :style="{ '--duration': `${scrollDuration}s` }">
             <div
@@ -41,7 +40,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
           </div>
         </div>
 
-        <!-- Row 2 (reversed direction for visual variety) -->
         <div class="carousel-row" role="presentation">
           <div
             class="carousel-track reverse"
@@ -67,9 +65,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
 }
 
 .section-container {
-  /* constrain width and center, use smaller side padding for small screens */
-  /* max-width: 1200px;
-  margin: 0 auto; */
   padding: 6rem 1.5rem;
 }
 
@@ -92,7 +87,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
 .carousel-row {
   overflow: hidden;
   width: 100%;
-  /* give rows some vertical spacing */
   padding: 0.5rem 0;
 }
 
@@ -102,12 +96,10 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   align-items: center;
   flex-wrap: nowrap;
   white-space: nowrap;
-  /* control speed via CSS variable set inline */
   animation: marquee linear infinite;
   animation-duration: var(--duration, 20s);
 }
 
-/* reverse direction for second row */
 .carousel-track.reverse {
   animation-direction: reverse;
 }
@@ -121,7 +113,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   }
 }
 
-/* pause on hover for accessibility */
 .carousel-row:hover .carousel-track {
   animation-play-state: paused;
 }
@@ -152,7 +143,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
 .tech-logo:hover {
   transform: translateY(-6px);
   border-color: rgba(255, 255, 255, 0.25);
-  /* pause animation while interacting */
 }
 
 .tech-logo:hover img {
@@ -160,7 +150,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   transform: scale(1.03);
 }
 
-/* Large laptops / smaller desktops */
 @media (max-width: 1200px) {
   .section-title {
     font-size: 28px;
@@ -175,7 +164,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   }
 }
 
-/* Tablets */
 @media (max-width: 900px) {
   .section-container {
     padding: 4rem 1rem;
@@ -194,7 +182,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   }
 }
 
-/* Small tablets / large phones */
 @media (max-width: 600px) {
   .section-container {
     padding: 3rem 0.75rem;
@@ -213,7 +200,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   }
 }
 
-/* Mobile */
 @media (max-width: 400px) {
   .section-title {
     font-size: 18px;
@@ -224,7 +210,6 @@ const carouselItems = [...displayedLogos, ...displayedLogos] // ensure enough it
   }
 
   .tech-logo img {
-    /* allow mobile logos to be a bit larger while keeping aspect */
     max-width: 140px;
   }
 }

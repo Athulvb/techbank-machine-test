@@ -95,8 +95,6 @@
   align-items: center;
   gap: 1rem;
   max-width: 460px;
-  /* text-align: right; */
-  /* margin-bottom: 2rem; */
   z-index: 2;
 }
 
@@ -111,7 +109,6 @@
   padding-top: 10px;
   color: #c0c0c0;
   font-weight: 400;
-  /* line-height: 1.6; */
 }
 
 .hero-main {
@@ -139,7 +136,6 @@
   width: 250px;
   height: 250px;
   top: 10%;
-  /* left: 10%; */
   opacity: 0.4;
   z-index: 1;
   background: url('/img/shield.png') no-repeat center;
@@ -227,13 +223,6 @@
     box-shadow 0.25s ease;
 }
 
-/* .view-products-btn:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 14px 32px rgba(133, 0, 166, 0.4),
-    0 0 0 10px rgba(86, 35, 233, 0.2);
-} */
-
 .btn-icon {
   position: absolute;
   right: 3px;
@@ -308,7 +297,6 @@
   .hero-content {
     min-height: 400px;
     padding: 2rem 1.5rem;
-    /* Use a mobile-specific background image and ensure it covers the area */
     background: url('/img/mobile_hero.png') no-repeat center;
     background-size: contain;
   }

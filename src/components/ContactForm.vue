@@ -7,7 +7,6 @@ const phone = ref('')
 const message = ref('')
 
 function submitForm() {
-  // For now just log and clear fields — integrate with API as needed
   console.log({ name: name.value, email: email.value, phone: phone.value, message: message.value })
   name.value = ''
   email.value = ''
@@ -108,7 +107,7 @@ function submitForm() {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  align-items: stretch; /* changed from center to allow columns to be equal height */
+  align-items: stretch;
 }
 
 .mobile-form-header {
@@ -118,12 +117,12 @@ function submitForm() {
 .left-card {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* ensure child .image-wrapper stretches to column height */
+  align-items: stretch;
 }
 
 .image-wrapper {
   width: 100%;
-  height: 100%; /* allow wrapper to fill column height */
+  height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
   border-radius: 28px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
@@ -134,10 +133,10 @@ function submitForm() {
 
 .image-wrapper img {
   width: 100%;
-  height: 100%; /* fill the wrapper */
+  height: 100%;
   display: block;
   border-radius: 20px;
-  object-fit: cover; /* crop and fill while preserving aspect */
+  object-fit: cover;
   object-position: center;
 }
 
@@ -188,7 +187,6 @@ function submitForm() {
   letter-spacing: 2px;
 }
 
-/* Ensure the mobile header uses the same visual styles as the desktop .form-header */
 .mobile-form-header .kicker {
   color: #b08aff;
   font-size: 12px;
@@ -200,7 +198,6 @@ function submitForm() {
   font-family: 'NYXERIN', sans-serif;
   font-size: 32px;
   font-weight: 400;
-  /* margin: 0 0 40px 0; */
   color: #fff;
   letter-spacing: 2px;
 }
@@ -252,10 +249,9 @@ textarea {
   align-items: center;
 }
 
-/* Make the phone input take remaining space and allow shrinking */
 .phone-field .phone-row input {
   flex: 1 1 auto;
-  min-width: 0; /* important to allow flex children to shrink on narrow containers */
+  min-width: 0;
 }
 
 .country-code {
@@ -269,7 +265,7 @@ textarea {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  flex: 0 0 auto; /* keep it from stretching */
+  flex: 0 0 auto;
 }
 
 .actions {
@@ -280,13 +276,12 @@ textarea {
   position: relative;
   display: inline-flex;
   align-items: center;
-  /* keep some gap for accessibility when text and icon overlap visually */
   gap: 12px;
   background: linear-gradient(90deg, #330694 0%, #8500a6 100%);
   color: #ffffff;
-  padding: 14px 64px 14px 20px; /* mirror hero button spacing */
+  padding: 14px 64px 14px 20px;
   border: none;
-  border-radius: 9999px; /* pill */
+  border-radius: 9999px;
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
@@ -294,7 +289,6 @@ textarea {
 }
 
 .send-btn span:first-child {
-  /* ensure label stays above the circular icon */
   z-index: 2;
 }
 
@@ -310,13 +304,12 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #8500a6; /* accent color for arrow */
+  color: #8500a6;
   border: 1.5px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   z-index: 3;
 }
 
-/* Responsive */
 @media (max-width: 1000px) {
   .contact-container {
     grid-template-columns: 1fr;
@@ -334,7 +327,7 @@ textarea {
   }
 
   .image-wrapper {
-    height: 380px; /* reasonable fixed height on stacked layout */
+    height: 380px;
   }
 
   .image-overlay h3 {
@@ -368,20 +361,18 @@ textarea {
     font-size: 14px;
   }
 
-  /* Make the send button full width and center on small screens */
   .send-btn {
     width: 100%;
     justify-content: center;
-    padding: 14px 20px; /* reduce horizontal padding when full width */
+    padding: 14px 20px;
     border-radius: 14px;
   }
 
   .send-btn .send-circle {
-    right: 16px; /* keep icon inside the pill */
+    right: 16px;
   }
 }
 
-/* Extra small devices */
 @media (max-width: 480px) {
   .contact-section {
     padding: 2.5rem 1rem;

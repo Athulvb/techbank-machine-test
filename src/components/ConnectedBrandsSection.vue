@@ -12,19 +12,15 @@
           <h3 class="brand-card-title">BLUE TIGERS</h3>
           <p class="brand-card-description">Fueling the Future of Film, Sports, and Technology.</p>
           <div class="brand-socials">
-            <!-- LinkedIn -->
             <a href="#" target="_blank" aria-label="LinkedIn" class="brand-social-btn">
               <img src="/img/LinkedinLogo.png" alt="LinkedIn" style="width: 28px; height: 28px" />
             </a>
-            <!-- Instagram -->
             <a href="#" target="_blank" aria-label="Instagram" class="brand-social-btn">
               <img src="/img/InstagramLogo.png" alt="Instagram" style="width: 28px; height: 28px" />
             </a>
-            <!-- X -->
             <a href="#" target="_blank" aria-label="X" class="brand-social-btn">
               <img src="/img/XLogo.png" alt="X" style="width: 28px; height: 28px" />
             </a>
-            <!-- YouTube -->
             <a href="#" target="_blank" aria-label="YouTube" class="brand-social-btn">
               <img src="/img/YoutubeLogo.png" alt="YouTube" style="width: 28px; height: 28px" />
             </a>
@@ -37,23 +33,18 @@
             A dynamic cricket team redefining the game with passion and power.
           </p>
           <div class="brand-socials">
-            <!-- Website -->
             <a href="#" target="_blank" aria-label="Website" class="brand-social-btn">
               <img src="/img/WorldLogo.png" alt="Website" style="width: 28px; height: 28px" />
             </a>
-            <!-- LinkedIn -->
             <a href="#" target="_blank" aria-label="LinkedIn" class="brand-social-btn">
               <img src="/img/LinkedinLogo.png" alt="LinkedIn" style="width: 28px; height: 28px" />
             </a>
-            <!-- Instagram -->
             <a href="#" target="_blank" aria-label="Instagram" class="brand-social-btn">
               <img src="/img/InstagramLogo.png" alt="Instagram" style="width: 28px; height: 28px" />
             </a>
-            <!-- X -->
             <a href="#" target="_blank" aria-label="X" class="brand-social-btn">
               <img src="/img/XLogo.png" alt="X" style="width: 28px; height: 28px" />
             </a>
-            <!-- YouTube -->
             <a href="#" target="_blank" aria-label="YouTube" class="brand-social-btn">
               <img src="/img/YoutubeLogo.png" alt="YouTube" style="width: 28px; height: 28px" />
             </a>
@@ -66,19 +57,15 @@
             A creative production house bringing bold stories to life.
           </p>
           <div class="brand-socials">
-            <!-- LinkedIn -->
             <a href="#" target="_blank" aria-label="LinkedIn" class="brand-social-btn">
               <img src="/img/LinkedinLogo.png" alt="LinkedIn" style="width: 28px; height: 28px" />
             </a>
-            <!-- Instagram -->
             <a href="#" target="_blank" aria-label="Instagram" class="brand-social-btn">
               <img src="/img/InstagramLogo.png" alt="Instagram" style="width: 28px; height: 28px" />
             </a>
-            <!-- X -->
             <a href="#" target="_blank" aria-label="X" class="brand-social-btn">
               <img src="/img/XLogo.png" alt="X" style="width: 28px; height: 28px" />
             </a>
-            <!-- YouTube -->
             <a href="#" target="_blank" aria-label="YouTube" class="brand-social-btn">
               <img src="/img/YoutubeLogo.png" alt="YouTube" style="width: 28px; height: 28px" />
             </a>
@@ -130,34 +117,32 @@
   margin: 0 auto;
 }
 
-/* Mobile: single-card view with horizontal scrolling */
 @media (max-width: 1100px) {
   .brands-grid {
-    display: flex; /* become a horizontal list */
+    display: flex;
     flex-direction: row;
     gap: 1rem;
     max-width: 100%;
-    margin: 0; /* full width scroll area */
+    margin: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    padding: 0 1rem 0.5rem; /* give some side padding so cards are centered nicely */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 1rem 0.5rem;
   }
   .brands-grid::-webkit-scrollbar {
-    display: none; /* hide webkit scrollbar */
+    display: none;
   }
   .brand-card {
-    flex: 0 0 86%; /* each card takes most of viewport so one is visible */
+    flex: 0 0 86%;
     scroll-snap-align: center;
     min-height: 420px;
     padding: 2rem 1.5rem 2rem 1.5rem;
-    margin: 0 auto; /* center within the scroll snap area */
+    margin: 0 auto;
   }
 }
 .brand-card {
-  /* border: linear-gradient(110deg, rgba(13, 5, 36, 0.91) 42%, rgba(35, 36, 38, 0.91) 100%); */
   position: relative;
   z-index: 1;
 }
@@ -165,7 +150,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  padding: 2px; /* border thickness */
+  padding: 2px;
   border-radius: 27px;
   background: linear-gradient(110deg, #bb83ff, #b1b1b1, #313131);
   mask:
@@ -178,15 +163,12 @@
   mask-composite: exclude;
   z-index: -1;
   pointer-events: none;
-  /* Fix for full background cover */
   width: 100%;
   height: 100%;
 }
 .brand-card {
-  background: #000; /* make sure background overlays the border gap */
-  /* other styles continue here */
+  background: #000;
   border-radius: 27px;
-  /* box-shadow: 0 7px 38px 0 rgba(90, 65, 174, 0.2); */
   padding: 2.5rem 1.8rem 2.2rem 1.8rem;
   display: flex;
   flex-direction: column;
